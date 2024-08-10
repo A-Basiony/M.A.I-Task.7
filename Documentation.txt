@@ -1,0 +1,153 @@
+# Command List and Explanations
+
+### 1) `ls` 
+- Lists items in the current folder.
+
+### 2) `cd` 
+- Can be used to open folders. If written alone, it returns to the previous folder.
+
+### 3) `pwd`
+- Shows the folder path till the folder currently in.
+
+### 4) `mkdir`
+- Used to create directories. The `mkdir --help` lists the available options:
+    - `-m` : Set file mode.
+    - `-p` : No error if existing, make parent directories as needed with file modes unaffected.
+    - `-v` : Print a message for each created directory.
+    - `-Z` : Set SELinux security context of each created directory to the default type.
+
+### 5) `rm`
+- Remove files or directories. The available options are:
+    - `-f` : Deletes read-only files immediately without confirmation.
+    - `-i` : Prompts for confirmation before deleting every file before entering a sub-directory.
+    - `-q` : Suppresses all warning messages, but error messages are still displayed.
+    - `-r` : Recursively deletes a directory and all its contents.
+    - `-d, --dir` : Remove empty directories.
+    - `-v, --verbose` : Explain what is being done.
+
+### 6) `cp`
+- Copy files and directories. The `cp --help` lists the available options:
+    - `-a, --archive` : Same as `-dR --preserve=all`.
+    - `--attributes-only` : Don't copy the file data, just the attributes.
+    - `--backup[=CONTROL]` : Make a backup of each existing destination file.
+    - `-b` : Like `--backup` but does not accept an argument.
+    - `--copy-contents` : Copy contents of special files when recursive.
+    - `-d` : Same as `--no-dereference --preserve=links`.
+    - `--debug` : Explains how a file is copied.
+    - `-f, --force` : If an existing destination file cannot be opened, remove it and try again (ignored when the `-n` option is also used).
+    - `-i, --interactive` : Prompt before overwrite (overrides a previous `-n` option).
+    - `-H` : Follow command-line symbolic links in `SOURCE`.
+    - `-l, --link` : Hard link files instead of copying.
+    - `-L, --dereference` : Always follow symbolic links in `SOURCE`.
+    - `-n, --no-clobber` : Do not overwrite an existing file.
+    - `-P, --no-dereference` : Never follow symbolic links in `SOURCE`.
+    - `-p` : Same as `--preserve=mode,ownership,timestamps`.
+    - `--preserve[=ATTR_LIST]` : Preserve the specified attributes.
+    - `--no-preserve=ATTR_LIST` : Don't preserve the specified attributes.
+    - `--parents` : Use full source file name under `DIRECTORY`.
+    - `-R, -r, --recursive` : Copy directories recursively.
+    - `--reflink[=WHEN]` : Control clone/CoW copies.
+    - `--remove-destination` : Remove each existing destination file before attempting to open it (contrast with `--force`).
+    - `--sparse=WHEN` : Control creation of sparse files.
+    - `--strip-trailing-slashes` : Remove any trailing slashes from each `SOURCE` argument.
+    - `-s, --symbolic-link` : Make symbolic links instead of copying.
+    - `-S, --suffix=SUFFIX` : Override the usual backup suffix.
+    - `-t, --target-directory=DIRECTORY` : Copy all `SOURCE` arguments into `DIRECTORY`.
+    - `-T, --no-target-directory` : Treat `DEST` as a normal file.
+    - `-u` : Equivalent to update.
+    - `-v, --verbose` : Explain what is being done.
+    - `-x, --one-file-system` : Stay on this file system.
+    - `-Z` : Set SELinux security context of the destination file to the default type.
+
+### 7) `mv`
+- Move or rename files and directories. The `mv --help` lists the available options:
+    - `--backup[=CONTROL]` : Make a backup of each existing destination file.
+    - `-b` : Like `--backup` but does not accept an argument.
+    - `--debug` : Explains how a file is copied. Implies `-v`.
+    - `-f, --force` : Do not prompt before overwriting.
+    - `-i, --interactive` : Prompt before overwrite.
+    - `-n, --no-clobber` : Do not overwrite an existing file.
+    - `--no-copy` : Do not copy if renaming fails.
+    - `--strip-trailing-slashes` : Remove any trailing slashes from each `SOURCE` argument.
+    - `-S, --suffix=SUFFIX` : Override the usual backup suffix.
+    - `-t, --target-directory=DIRECTORY` : Move all `SOURCE` arguments into `DIRECTORY`.
+    - `-T, --no-target-directory` : Treat `DEST` as a normal file.
+    - `-u` : Control which existing files are updated.
+    - `-v, --verbose` : Explain what is being done.
+    - `-Z, --context` : Set SELinux security context of the destination file to the default type.
+
+### 8) `cat`
+- Concatenate and print files to standard output. The `cat --help` lists some more options:
+    - `-A, --show-all` : Equivalent to `-vET`.
+    - `-b, --number-nonblank` : Number nonempty output lines, overrides `-n`.
+    - `-e` : Equivalent to `-vE`.
+    - `-E, --show-ends` : Display `$` at the end of each line.
+    - `-n, --number` : Number all output lines.
+    - `-s, --squeeze-blank` : Suppress repeated empty output lines.
+    - `-u` : (Ignored).
+    - `-v, --show-nonprinting` : Use `^` and `M-` notation, except for `LFD` and `TAB`.
+
+### 9) `nano`
+- Command-line text editor. The `nano --help` lists all the options:
+    - `-A --smarthome` : Enable smart home key.
+    - `-B --backup` : Save backups of existing files.
+    - `-C <dir> --backupdir=<dir>` : Directory for saving unique backup files.
+    - `-D --boldtext` : Use bold instead of reverse video text.
+    - `-E --tabstospaces` : Convert typed tabs to spaces.
+    - `-F --multibuffer` : Read a file into a new buffer by default.
+    - `-G --locking` : Use (vim-style) lock files.
+    - `-H --historylog` : Save & reload old search/replace strings.
+    - `-I --ignorercfiles` : Don't look at `nanorc` files.
+    - `-J <number> --guidestripe=<number>` : Show a guiding bar at this column.
+    - `-K --rawsequences` : Fix numeric keypad key confusion problem.
+    - `-L --nonewlines` : Don't add an automatic newline.
+    - `-M --trimblanks` : Trim tail spaces when hard-wrapping.
+    - `-N --noconvert` : Don't convert files from DOS/Mac format.
+    - `-O --bookstyle` : Leading whitespace means new paragraph.
+    - `-P --positionlog` : Save & restore position of the cursor.
+    - `-Q <regex> --quotestr=<regex>` : Regular expression to match quoting.
+    - `-R --restricted` : Restrict access to the filesystem.
+    - `-S --softwrap` : Display overlong lines on multiple rows.
+    - `-T <number> --tabsize=<number>` : Make a tab this number of columns wide.
+    - `-U --quickblank` : Wipe status bar upon next keystroke.
+    - `-V --version` : Print version information and exit.
+    - `-W --wordbounds` : Detect word boundaries more accurately.
+    - `-X <string> --wordchars=<string>` : Which other characters are word parts.
+    - `-Y <name> --syntax=<name>` : Syntax definition to use for coloring.
+    - `-Z --zap` : Let `Bsp` and `Del` erase a marked region.
+    - `-a --atblanks` : When soft-wrapping, do it at whitespace.
+    - `-b --breaklonglines` : Automatically hard-wrap overlong lines.
+    - `-c --constantshow` : Constantly show cursor position.
+    - `-d --rebinddelete` : Fix Backspace/Delete confusion problem.
+    - `-e --emptyline` : Keep the line below the title bar empty.
+    - `-f <file> --rcfile=<file>` : Use only this file for configuring nano.
+    - `-g --showcursor` : Show cursor in file browser & help text.
+    - `-h --help` : Show this help text and exit.
+    - `-i --autoindent` : Automatically indent new lines.
+    - `-j --jumpyscrolling` : Scroll per half-screen, not per line.
+    - `-k --cutfromcursor` : Cut from cursor to end of line.
+    - `-l --linenumbers` : Show line numbers in front of the text.
+    - `-m --mouse` : Enable the use of the mouse.
+    - `-n --noread` : Do not read the file (only write it).
+    - `-o <dir> --operatingdir=<dir>` : Set operating directory.
+    - `-p --preserve` : Preserve XON (^Q) and XOFF (^S) keys.
+    - `-q --indicator` : Show a position+portion indicator.
+    - `-r <number> --fill=<number>` : Set width for hard-wrap and justify.
+    - `-s <program> --speller=<program>` : Use this alternative spell checker.
+    - `-t --saveonexit` : Save changes on exit, don't prompt.
+    - `-u --unix` : Save a file by default in Unix format.
+    - `-v --view` : View mode (read-only).
+    - `-w --nowrap` : Don't hard-wrap long lines [default].
+    - `-x --nohelp` : Don't show the two help lines.
+    - `-y --afterends` : Make Ctrl+Right stop at word ends.
+    - `-% --stateflags` : Show some states on the title bar.
+    - `-_ --minibar` : Show a feedback bar at the bottom.
+    - `-0 --zero` : Hide all bars, use whole terminal.
+
+### 10) `sudo`
+- Perform the command as admin.
+
+### 11) `update` and `upgrade`
+- Used to update the Ubuntu system and applications in it.
+
+### 12) Created an access point using OpenWRT system, which is also Linux-based.
