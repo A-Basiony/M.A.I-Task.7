@@ -1,0 +1,2 @@
+by decreasing the sampling rate to 0.25s it captures more data when compared to the 1s it missed small fine details and will result in under presentation of the signal graph.
+number of quantization levels affect the accuracy of the amplitude presentation, so the 3 bit quantization presents more accurate amplitude than the 2 bit quantization which will result in more amplitude error.

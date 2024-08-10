@@ -1,0 +1,78 @@
+https://colab.research.google.com/drive/1z8wxAYOpxdts9xUQqSZqtxTJFOWc-auu?usp=sharing
+
+
+import pygame
+import sys
+
+pygame.init()
+
+WIDTH, HEIGHT = 800, 800
+WHITE, BLACK = (255, 255, 255), (0, 0, 0)
+SQUARE_SIZE = WIDTH // 8
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('Chess Game')
+
+# Load images
+def load_images():
+    pieces = ['w_pawn', 'w_rook', 'w_knight', 'w_bishop', 'w_queen', 'w_king', 
+              'b_pawn', 'b_rook', 'b_knight', 'b_bishop', 'b_queen', 'b_king']
+    images = {}
+    for piece in pieces:
+        images[piece] = pygame.transform.scale(pygame.image.load(f'/content/images/{piece}.png'), (SQUARE_SIZE, SQUARE_SIZE))
+    return images
+
+images = load_images()
+
+# Chessboard Arrangments
+def initialize_board():
+    board = [['' for _ in range(8)] for _ in range(8)]
+    board[0] = ['b_rook', 'b_knight', 'b_bishop', 'b_queen', 'b_king', 'b_bishop', 'b_knight', 'b_rook']
+    board[1] = ['b_pawn'] * 8
+    board[6] = ['w_pawn'] * 8
+    board[7] = ['w_rook', 'w_knight', 'w_bishop', 'w_queen', 'w_king', 'w_bishop', 'w_knight', 'w_rook']
+    return board
+
+# Display the board
+def draw_board(board):
+    for row in range(8):
+        for col in range(8):
+            color = WHITE if (row + col) % 2 == 0 else BLACK
+            pygame.draw.rect(screen, color, pygame.Rect(col * SQUARE_SIZE, row * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
+            piece = board[row][col]
+            if piece:
+                screen.blit(images[piece], (col * SQUARE_SIZE, row * SQUARE_SIZE))
+    pygame.display.flip()
+
+# Piece movement logic
+def is_valid_move(board, start, end, player):
+    return True
+
+def move_piece(board, start, end):
+    board[end[1]][end[0]] = board[start[1]][start[0]]
+    board[start[1]][start[0]] = ''
+
+def check_checkmate(board, player):
+    return False
+
+def main():
+    clock = pygame.time.Clock()
+    board = initialize_board()
+    current_player = 'w'
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+        draw_board(board)
+
+        if check_checkmate(board, current_player):
+            print(f"Checkmate! {current_player} loses.")
+            break
+        
+        current_player = 'b' if current_player == 'w' else 'w'
+        clock.tick(30)
+
+if __name__ == "__main__":
+    main()
